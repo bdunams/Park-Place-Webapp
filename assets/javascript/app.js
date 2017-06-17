@@ -235,30 +235,36 @@ function displayEvent() {
               description = "Not Provided";
           }
         
-        addMarkerToMap(lat,lng,description);
+          // Eventful Search Results panel format for html
+          var eventsDiv = '<div class="panel panel-default"><div class="panel-body">'+
+              '<h4>'+title+'</h4>'+
+              '<div class="image"><img src="'+image+'"></div>'+
+              '<div class="description">'+description+'</div>'+
+              '<div class="venue">'+venue+'</div>'+
+              '<div class="address">'+address+'</div>'+
+              '<div class="cityState">City/State: ' +city+ ', ' +state+'</div>'+
+              '<div class="time">Time: '+time+'</div>'+
+              '<div class="url"><a href="'+url+'" target="_blank">Tickets</a></div>'+
+              '</div></div>';
+        
+          // Eventful Search Results format for map marker infowindow
+          var eventsInfo = '<h4>'+title+'</h4>'+
+              '<div class="image"><img src="'+image+'"></div>'+
+              '<div class="description">'+description+'</div><br>'+
+              '<div class="venue">'+venue+'</div>'+
+              '<div class="address">'+address+'</div>'+
+              '<div class="cityState">City/State: ' +city+ ', ' +state+'</div>'+
+              '<div class="time">Time: '+time+'</div>'+
+              '<div class="url"><a href="'+url+'" target="_blank">Tickets</a></div>';
+        
+          // add event markers
+          addMarkerToMap(lat,lng,eventsInfo);
 
-
-          var titleP = $("<div class = 'row title'>").text("Event: " + title);
-          var descriptionP = $("<div class = 'row description'>").text("Description: " + description);
-          var venueP = $("<div class = 'row venue'>").text("Venue: " + venue);
-          var addressP = $("<div class = 'row address'>").text("Address: " + address);
-          var cityStateP = $("<div class = 'row cityState'>").text("City/State: " + city + ", " + state);
-          var timeP = $("<div class = 'row time'>").text("Time: " + time);
-          var urlP = $("<div class = 'row url'>").html("<a href='" + url + "' target='_blank'> Tickets </a>");
-          var imageP = $("<div class = 'row image'>").html("<img src='" + image + "'>");
-
-          // eventDiv.append(thumb);
-          eventDiv.append(imageP);
-          eventDiv.append(titleP);
-          eventDiv.append(descriptionP);
-          eventDiv.append(venueP);
-          eventDiv.append(addressP);
-          eventDiv.append(cityStateP);
-          eventDiv.append(timeP);
-          eventDiv.append(urlP);
-
-          $("#events").append(eventDiv);
-        $(".description").collapser({
+          // append Eventful panels to html
+          $("#events").append(eventsDiv);
+        
+          // show more/show less plug-in feature from jquery.collapser.js
+          $(".description").collapser({
               mode: 'words',
               truncate: 20
           });
