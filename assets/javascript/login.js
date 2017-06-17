@@ -82,11 +82,15 @@ firebase.auth().onAuthStateChanged(function(user) {
     
     $('#sign-in').hide();
     $('#sign-out').show();
+    
+    $('#display-name').text(', '+displayName);
   } 
   else{
-    $('#sign-out').hide();
-    $('#sign-in').show();
     // User is signed out.
     // possible signout actions
+    $('#sign-out').hide();
+    $('#sign-in').show();
+    
+    $('#display-name').empty();
   }
 })

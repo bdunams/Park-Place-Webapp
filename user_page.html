@@ -17,8 +17,6 @@
     <div class="row">
       <div class="col-md-12">
         <nav class="navbar navbar-inverse" role="navigation">
-    <div class = "row">
-      <div class = "col-md-6">
           <div class="navbar-header">
             <span class="navbar-brand">Menu</span>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false" aria-controls="#menu">
@@ -31,17 +29,13 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="map_page.html">Map &amp; Events</a></li>
             <li class="active"><a  href="user_page.html">User</a></li>
-            
           </ul>
-          </div>
-          <div class = "col-md-4">
-            <div class = "alert"></div>
-          </div>
-          <div class = "col-md-2">
-              <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Post Spot</button>           
-          </div>
-
-      </div>
+          <ul class="nav navbar-nav navbar-right navbar-collapse collapse">
+            <li class="navbar-brand">Hello <span id="display-name"></span></li>
+            <li><button id="sign-in" type="button" class="btn btn-default navbar-btn">Sign in</button></li>
+            <li><button id="sign-out" type="button" class="btn btn-default navbar-btn">Sign out</button></li>
+            <li><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Post Spot</button>  </li>
+          </ul>
         </nav>  
       </div>
     </div>
@@ -120,6 +114,9 @@
 
 <!--Link to userPage.js goes here-->
   <script src="assets/javascript/userPage.js"></script>
+  
+<!-- Login.js -->
+  <script src="assets/javascript/login.js"></script>
 
 <!--Link to google maps goes here-->
   <script async defer
