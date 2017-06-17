@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Park Place Parking App</title>
+<!--css reset goes here -->
+<!--	<link rel="stylesheet" type="text/css" href="./assets/css/reset.css">	-->
+
+<!--Bootstrap CDN goes here -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!--secondary style sheet goes here-->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+
+</head>
+<body class="body">
+<!--code for the navbar-->
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<nav class="navbar navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					<span class="navbar-brand">Park Place</span>
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false" aria-controls="#menu">
+						<span class ="icon-bar"></span>
+						<span class ="icon-bar"></span>
+						<span class ="icon-bar"></span>
+					</button>
+				</div>
+				<ul class="nav navbar-nav navbar-collapse collapse" id="menu">
+					<li class="active"><a href="index.html">Home</a></li>
+					<li><a href="map_page.html">Map</a></li>
+					<li><a href="user_page.html">User</a></li>
+					
+				</ul>
+                <ul class="nav navbar-nav navbar-right navbar-collapse collapse">
+                  <li><button id="sign-in" type="button" class="btn btn-default navbar-btn">Sign in</button></li>
+                  <li><button id="sign-out" type="button" class="btn btn-default navbar-btn">Sign out</button></li>
+					
+				</ul>
+			</nav>		
+		</div>
+	</div>
+</div>
+<!--code for the jumbotron and search form-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+    <div class="jumbotron text-center">
+      <h1>Park Place</h1>
+       <form method="get" action="map_page.html">
+         <div class="col-md-6 col-md-offset-3">
+        	<div class="input-group input-group-lg">
+            <input type="text" name="location" class="form-control" placeholder="Search for parking">
+            <span class="input-group-addon"><a type="submit">Search</a></span>
+          </div>
+        </div>
+      </form>
+      <br><br>
+    </div>
+  </div>
+  </div>
+</div>
+<!--copy to explain how to use the site-->
+<div class="container">
+  <div class="row text-center" id="usingSite">
+    <div class="col-md-4 homepageMiddle">
+
+        <img alt= "searchlogo" src= "./assets/images/search.png">
+        <h2 class="siteCopy"> Search</h2>
+        <p>Check for free or low-cost parking in your favorite cities and during your favorite events.</p>
+    </div>
+
+    <div class="col-md-4 homepageMiddle">
+        <img alt= "seeklogo" src= "./assets/images/seek.png">
+        <h2 class="siteCopy"> See The Spot</h2>
+        <p> Use Google Maps Earthview to see the area you'll be parking in. You'll rest easy knowing your car is safe. </p>
+    </div>
+
+    <div class="col-md-4 homepageMiddle">
+    <img alt= "sharelogo" src= "./assets/images/share.png">
+    <h2 class="siteCopy">Share</h2>
+    <p>Join our community, so you'll know when the meter readers are in the area - and when they're not.</p>
+    </div>
+  </div>
+</div>
+<div class="container">
+    <div class="row">
+            <div class=col-md-3>
+                <div class="thumbnail img-fluid">
+                <img alt= "urban landscape 1" src= "./assets/images/city1edited.jpg">
+                </div>
+            </div>
+            <div class=col-md-3>
+                <div class="thumbnail img-fluid">
+                <img alt= "urban landscape 2" src= "./assets/images/city2edited.jpg">
+                </div>
+            </div>
+            <div class=col-md-3>
+                <div class="thumbnail img-fluid">
+                <img alt= "urban landscape 3" src= "./assets/images/city3edited.jpg">
+                </div>
+            </div>
+            <div class=col-md-3>
+                <div class="thumbnail img-fluid">
+                <img alt= "urban landscape 3" src= "./assets/images/city4edited.jpg">
+                </div>
+            </div>
+
+    </div>
+</div>
+	
+  <!--Link to jquery goes here-->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<!--Link to Firebase goes here-->
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+
+<!--Link to minified Bootstrap .js goes here-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  
+<!-- Login.js -->
+  <script src="assets/javascript/login.js"></script>
+		
+	
+</body>
+</html>

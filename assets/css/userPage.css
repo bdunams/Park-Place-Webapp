@@ -1,0 +1,67 @@
+.modal-header,
+.modal-footer {
+	border: 0;
+	text-align: center;
+}
+.modal-footer {
+	padding-bottom: 10%
+}
+.modal-title {
+	color: white;
+	font-size: 40px;
+	padding-top: none;
+}
+.modal-header {
+	margin-top: 5%;
+	padding: none;
+}
+.modal-align {
+	text-align: center;
+}
+.modal-content {
+	background-color: #5bc0de;
+}
+.input-group {
+	margin: 5%;
+	margin-left: 10%;
+	width: 80%;
+}
+.postNow {
+	position: absolute;
+	top: 2px;
+}
+
+.cancel {
+	background-color: #3b5998;
+	color:white;
+}
+.post-button {
+	background-color: #f67c37;
+	color: white;
+}
+.report-label {
+	color: white;
+	font-size: 20px;
+}
+.price {
+	margin-top: none;
+}
+
+.textbox  {
+	font-size: 20px;
+	border-radius: 8px;
+	-moz-border-radius: 15px;
+}
+.comments {
+	height: 100px;
+}
+
+#map {
+	width: 100%; 
+	height: 300px;
+}
+
+.table-striped {
+	position: absolute;
+	top: 300px;
+}

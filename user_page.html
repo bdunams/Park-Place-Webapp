@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Park Place Parking App</title>
+
+<!--Bootstrap CDN goes here -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!--secondary style sheet goes here-->
+  <link rel="stylesheet" type="text/css" href="assets/css/userPage.css">
+
+</head>
+<body class="body">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-inverse" role="navigation">
+    <div class = "row">
+      <div class = "col-md-6">
+          <div class="navbar-header">
+            <span class="navbar-brand">Menu</span>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false" aria-controls="#menu">
+              <span class ="icon-bar"></span>
+              <span class ="icon-bar"></span>
+              <span class ="icon-bar"></span>
+            </button>
+          </div>
+          <ul class="nav navbar-nav navbar-collapse collapse" id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="map_page.html">Map &amp; Events</a></li>
+            <li class="active"><a  href="user_page.html">User</a></li>
+            
+          </ul>
+          </div>
+          <div class = "col-md-4">
+            <div class = "alert"></div>
+          </div>
+          <div class = "col-md-2">
+              <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Post Spot</button>           
+          </div>
+
+      </div>
+        </nav>  
+      </div>
+    </div>
+  </div>
+  <div class = "container map-container">
+    <div class = "row">
+      <div class = "col-md-12">
+        <div id="map"></div>  <!--code for the navbar-->
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-condensed table-striped">
+            <thead>
+              <tr class ="cat-headings">
+                  <th>Location</th>   
+                  <th>Price</th>
+                  <th>Date</th> 
+                  <th>Time</th>
+                  <th>Comments</th>               
+              </tr>
+            </thead>
+            <tbody id = "new-data"></tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+    <!-- Modal tag-->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class = "row">
+          <div class = "col-md-12 center-block">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Report a Space!</h4>
+            </div>
+            <div class="modal-body">
+            <div class="input-group">
+            <label class = "report-label">Price</label>
+              <input type="text" class="form-control price" placeholder="Price" aria-describedby="sizing-addon2">
+            </div>
+            <div class="input-group numSpots">
+             <label class = "report-label"># Spots</label>
+              <input type="text" class="form-control numSpots" placeholder="Spots" aria-describedby="sizing-addon2">
+            </div>
+            <div class="input-group comments">
+             <label class = "report-label">Comments</label>
+              <textarea type="text" class="form-control comments" placeholder="Comments" aria-describedby="sizing-addon2"></textarea>
+            </div>   
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default post-button" data-dismiss="modal">Post</button>
+              <button type="button" class="btn btn-default cancel" data-dismiss="modal">Cancel</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+<!--Link to jquery goes here-->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<!--Link to Firebase goes here-->
+  <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+
+<!--Link to userPage.js goes here-->
+  <script src="assets/javascript/userPage.js"></script>
+
+<!--Link to google maps goes here-->
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAykvhEyaahkeC4gM4-agk4ShVJ2sE3Xkw&callback=initMap">
+  </script>
+
+<!--Link to Moment.js goes here-->
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+<!--Link to minified Bootstrap .js for responsive navbar goes here-->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  </body>
+</html>

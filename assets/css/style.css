@@ -1,0 +1,61 @@
+.body{
+	box-sizing: border-box;
+	height: 100px;
+}
+
+.jumbotron{
+	background-image: url(../images/parking-meter-1920a.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 25px 75px 100px 75px;
+	color: white;
+ }
+
+ 
+.navbar-inverse{ 
+	color:white;
+	 }
+
+.play {
+	text-align: center;
+	width: 100%;
+}
+
+.textarea {
+	width: 100%;
+	border-radius: 4px;
+	height:30px;
+}
+#addData {
+	margin-top: 20px;
+}
+#events{
+  height: 600px;
+  overflow-x: auto;
+}
+.error-message {
+	color: red;
+}
+
+.homepageMiddle{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.siteCopy {
+	color: #5B6575;
+}
+/* css below is for the user page only */
+.panel-primary {
+	text-align: center;
+	margin-top: 0px;
+}
+.header {
+	background-image: url(../images/parking-meter-1920a.jpg);
+    background-repeat: no-repeat;
+    color: white;
+    margin: 5px;
+}
+.container{
+	background-color: #D9E3F4;
+}
