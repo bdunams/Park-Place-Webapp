@@ -62,7 +62,6 @@ function userSignIn() {
   }
 }
 
-  
 // function to signout user
 function userSignOut() {
   firebase.auth().signOut();
@@ -82,15 +81,21 @@ firebase.auth().onAuthStateChanged(function(user) {
     
     $('#sign-in').hide();
     $('#sign-out').show();
-    
-    $('#display-name').text(', '+displayName);
+    $('#modalButton').show();
+    $('#no-user').text('');
+    $('.display-name').text(', '+displayName);
+    $('#profile-image').attr('src', photoURL);
+    $('#display-email').text(email);
   } 
   else{
     // User is signed out.
     // possible signout actions
     $('#sign-out').hide();
     $('#sign-in').show();
-    
-    $('#display-name').empty();
+    //$('#modalButton').hide();
+    $('#no-user').text('User must be signed in to view posts');
+    $('.display-name').empty();
+    $('#profile-image').attr('src', '');
+    $('#display-email').text('');
   }
 })

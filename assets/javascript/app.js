@@ -114,7 +114,7 @@ function initMap() {
 }
 
 // function to initialize map based on current location
-//navigator.geolocation.getCurrentPosition(function(position) {
+// navigator.geolocation.getCurrentPosition(function(position) {
 //  
 //  var location = new google.maps.LatLng(position.coords.latitude,position.coords.longitude)
 //  
@@ -174,7 +174,6 @@ function displayEvent() {
     location = 'Cleveland'
   }
   
-  console.log(location);
   //var keyword = $("#keyword").val().trim();
   //var event = $("#event").val().trim();
 
@@ -201,7 +200,6 @@ function displayEvent() {
   EVDB.API.call("/events/search", oArgs, function(oData) {
 
       // Note: this relies on the custom toString() methods below
-      console.log(oData);
       Object.prototype.toString = function() {
           var s = "{\n";
           for (var x in this) {
@@ -269,9 +267,6 @@ function displayEvent() {
               truncate: 20
           });
       }
-
   });
 }
-
-
 displayEvent();

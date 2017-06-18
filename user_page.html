@@ -31,15 +31,17 @@
             <li class="active"><a  href="user_page.html">User</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right navbar-collapse collapse">
-            <li class="navbar-brand">Hello <span id="display-name"></span></li>
+            <li class="navbar-brand"><span class="alert"></span></li>
+            <li class="navbar-brand">Hello <span class="display-name"></span></li>
             <li><button id="sign-in" type="button" class="btn btn-default navbar-btn">Sign in</button></li>
             <li><button id="sign-out" type="button" class="btn btn-default navbar-btn">Sign out</button></li>
-            <li><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Post Spot</button>  </li>
+            <li><button id="modal-button" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Post Spot</button></li>
           </ul>
         </nav>  
       </div>
     </div>
   </div>
+  
   <div class = "container map-container">
     <div class = "row">
       <div class = "col-md-12">
@@ -49,23 +51,30 @@
   </div>
 
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <table class="table table-condensed table-striped">
-            <thead>
-              <tr class ="cat-headings">
-                  <th>Location</th>   
-                  <th>Price</th>
-                  <th>Date</th> 
-                  <th>Time</th>
-                  <th>Comments</th>               
-              </tr>
-            </thead>
-            <tbody id = "new-data"></tbody>
-        </table>
-
+    <div><h3 id="no-user"></h3></div>
+    <div class="media col-md-8">
+      <div class="media-left">
+        <img id="profile-img" class="media-object" src="" alt="">
       </div>
+      <div class="media-body">
+        <h3 class="media-heading"><span class="display-name"></span></h3>
+        <p><span id="display-email"></span></p>
+      </div>
+      <hr>
     </div>
+    <div class="col-md-4">
+      <h4 class="text-center">Search for Parking and Events!</h4>
+      <form class="form-inline text-center" action="map_page.html">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="location">
+        </div>
+        <button type="submit" class="btn btn-default">Search</button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="col-md-6" id="user-posts"></div>
   </div>
 
     <!-- Modal tag-->
@@ -83,19 +92,19 @@
             <div class="modal-body">
             <div class="input-group">
             <label class = "report-label">Price</label>
-              <input type="text" class="form-control price" placeholder="Price" aria-describedby="sizing-addon2">
+              <input type="text" required class="form-control" id="price" placeholder="Price" aria-describedby="sizing-addon2">
             </div>
             <div class="input-group numSpots">
              <label class = "report-label"># Spots</label>
-              <input type="text" class="form-control numSpots" placeholder="Spots" aria-describedby="sizing-addon2">
+              <input type="text" required class="form-control" id="numSpots" placeholder="Spots" aria-describedby="sizing-addon2">
             </div>
             <div class="input-group comments">
              <label class = "report-label">Comments</label>
-              <textarea type="text" class="form-control comments" placeholder="Comments" aria-describedby="sizing-addon2"></textarea>
+              <textarea type="text" required class="form-control" id="comments" placeholder="Comments" aria-describedby="sizing-addon2"></textarea>
             </div>   
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default post-button" data-dismiss="modal">Post</button>
+              <button id="post-button" type="button" class="btn btn-default post-button" data-dismiss="modal">Post</button>
               <button type="button" class="btn btn-default cancel" data-dismiss="modal">Cancel</button>
 
             </div>
@@ -112,19 +121,19 @@
 <!--Link to Firebase goes here-->
   <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
 
-<!--Link to userPage.js goes here-->
-  <script src="assets/javascript/userPage.js"></script>
-  
-<!-- Login.js -->
-  <script src="assets/javascript/login.js"></script>
-
 <!--Link to google maps goes here-->
   <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAykvhEyaahkeC4gM4-agk4ShVJ2sE3Xkw&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAykvhEyaahkeC4gM4-agk4ShVJ2sE3Xkw">
   </script>
 
 <!--Link to Moment.js goes here-->
   <script src = "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  
+<!-- Login.js -->
+  <script src="assets/javascript/login.js"></script>
+  
+<!--Link to userPage.js goes here-->
+  <script src="assets/javascript/userPage.js"></script>
 
 <!--Link to minified Bootstrap .js for responsive navbar goes here-->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
