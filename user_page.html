@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Park Place Parking App</title>
+  <title>Park Place User</title>
 
 <!--Bootstrap CDN goes here -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -13,6 +13,7 @@
 
 </head>
 <body class="body">
+<!-- Navbar -->
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -41,40 +42,50 @@
       </div>
     </div>
   </div>
-  
-  <div class = "container map-container">
-    <div class = "row">
-      <div class = "col-md-12">
-        <div id="map"></div>  <!--code for the navbar-->
+<!-- Google Map -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="map"></div>
       </div>
     </div>
   </div>
 
+<!-- User Info -->
   <div class="container">
-    <div><h3 id="no-user"></h3></div>
-    <div class="media col-md-8">
-      <div class="media-left">
-        <img id="profile-img" class="media-object" src="" alt="">
-      </div>
-      <div class="media-body">
-        <h3 class="media-heading"><span id="profile-name"></span></h3>
-        <p><span id="display-email"></span></p>
-      </div>
-      <hr>
-    </div>
-    <div class="col-md-4">
-      <h4 class="text-center">Search for Parking and Events!</h4>
-      <form class="form-inline text-center" action="map_page.html">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="location">
+    <br>
+    <div class="row">
+      <div class="col-md-8">
+        <h3 id="no-user"></h3>
+        <div class="media">
+          <div class="media-left">
+            <img id="profile-img" class="media-object" src="" alt="">
+          </div>
+          <div class="media-body">
+            <h3 class="media-heading"><span id="profile-name"></span></h3>
+            <p><span id="display-email"></span></p>
+          </div>
+          <hr>
         </div>
-        <button type="submit" class="btn btn-default">Search</button>
-      </form>
+      </div>
+      <div class="col-md-4">
+        <h4 class="text-center">Search for Parking and Events!</h4>
+        <form class="form-inline text-center" action="map_page.html">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" name="location">
+          </div>
+          <button type="submit" class="btn btn-default">Search</button>
+        </form>
+      </div>
     </div>
   </div>
-  
+
+<!-- Previous Posts -->
   <div class="container">
-    <div class="col-md-6" id="user-posts"></div>
+    <div class="col-md-6">
+      <h4 id="previous-posts-title"></h4>
+      <div  id="user-posts"></div>
+    </div>
   </div>
 
     <!-- Modal tag-->

@@ -1,26 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Map Page</title>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Park Place Map</title>
     <!--Bootstrap CDN goes here -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-<!--secondary style sheet goes here-->
+<!--style sheet goes here-->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
     
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 600px;
-        width: 100%;
-/*        margin: -18px 0;*/
-      }
-      /* Optional: Makes the sample page fill the window. */
-    </style>
   </head>
   <body>
-<!--    <div class="container">-->
+<!-- Navbar -->
 <nav class="navbar navbar-inverse" role="navigation">
     <div class="navbar-header">
         <span class="navbar-brand">Park Place</span>
@@ -43,9 +36,10 @@
     </form>
 </nav>		
 
+<!-- Google Map and Eventful Results -->
 <div class="container-fluid">
   <div class="row">
-    <div class='col-md-9'><div id="map"></div></div>
+    <div id="map-container" class='col-md-9'><div id="map"></div></div>
 
     <div id="events" class="col-md-3">
       <div class="panel panel-default">
@@ -66,10 +60,10 @@
 <!-- jQuery Collapser -->
     <script src="assets/javascript/jquery.collapser.js">
     </script> 
-<!-- Google Maps API  -->
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=  AIzaSyCGPSh4Yc2JrcvGlPcp7SgXco_l13pBJPg">
-    </script>
+<!--Link to google maps goes here-->
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPSXA9i8anVJ_m3H3v3JFgUYkY8ads1OU">
+  </script>
     
 <!-- Eventful API  -->
     <script type="text/javascript" src="https://api.eventful.com/js/api"></script>

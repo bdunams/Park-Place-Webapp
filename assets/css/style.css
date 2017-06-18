@@ -10,7 +10,9 @@
 	padding: 25px 75px 100px 75px;
 	color: white;
  }
-
+.city-img:hover{
+  opacity: .8;
+}
  
 .navbar-inverse{ 
 	color:white;
@@ -30,7 +32,7 @@
 	margin-top: 20px;
 }
 #events{
-  height: 600px;
+  height: 85vh;
   overflow-x: auto;
 }
 .error-message {
@@ -56,6 +58,27 @@
     color: white;
     margin: 5px;
 }
-.container{
+body{
 	background-color: #D9E3F4;
+}
+#map-container{
+  height: 100%;
+}
+
+#map {
+  height: 85vh;
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+    width: .5em;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
 }

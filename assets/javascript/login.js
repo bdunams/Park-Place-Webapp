@@ -24,7 +24,6 @@ $('#sign-out').on('click', userSignOut);
 
 // function to sign in a user
 function userSignIn() {
-  console.log('sign-in')
   // if no current user exists, sign in user 
   if (!firebase.auth().currentUser) {
     // Create provider
@@ -43,9 +42,8 @@ function userSignIn() {
       }, function(error) {
         // An error happened.
       });
-      
+      // set currentUser for later use
       currentUser = user;
-      console.log(currentUser);
 
     }).catch(function(error){
       // Handle Errors here.
@@ -79,25 +77,29 @@ firebase.auth().onAuthStateChanged(function(user) {
     var uid = user.uid;
     var providerData = user.providerData;
     
+    // code to personalize experience
     $('#sign-in').hide();
     $('#sign-out').show();
-    $('#modalButton').show();
+    $('#modal-button').show();
     $('#no-user').text('');
-    $('#display-name').text(', '+displayName);
+    $('.display-name').text(', '+displayName);
     $('#profile-name').text(displayName+"'s User Page");
-    $('#profile-image').attr('src', photoURL);
+    $('#profile-img').attr('src', photoURL);
     $('#display-email').text(email);
+    $('#previous-posts-title').text('Previous Posts')
   } 
   else{
     // User is signed out.
     // possible signout actions
+    // neutralize personalizations
     $('#sign-out').hide();
     $('#sign-in').show();
     $('#modal-button').hide();
     $('#no-user').text('User must be signed in to view posts');
     $('.display-name').empty();
     $('#profile-name').empty();
-    $('#profile-image').attr('src', '');
+    $('#profile-img').attr('src', '');
     $('#display-email').text('');
+    $('#previous-posts-title').text('')
   }
 })

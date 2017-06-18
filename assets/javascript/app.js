@@ -15,8 +15,8 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
+// global variables
 var map;
-
 var lat, lng;
 
 // function to add markers to the map
@@ -38,6 +38,7 @@ function addMarkerToMap(lat, lng, infoWindowHtml,symbol){
   else{
     var marker = new google.maps.Marker({ 
     position: myLatLng,
+    icon:'https://maps.google.com/mapfiles/kml/shapes/info-i_maps.png',
     map: map, 
     animation: google.maps.Animation.DROP, 
     })
@@ -49,21 +50,20 @@ function addMarkerToMap(lat, lng, infoWindowHtml,symbol){
       
 }
 
+// function to initialize the map,
 function initMap() {
   
   // search result GET variable from url
   var address = window.location.search.substr(10);
   geocoder = new google.maps.Geocoder();
   
+  // used to turn your location entered into precise coordinates
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == 'OK') {
       map.setCenter(results[0].geometry.location);
-      console.log(results[0].geometry.location);
       //we call the functions inside the results object in order to get the lat and long.
       lat = results[0].geometry.location.lat();
       lng = results[0].geometry.location.lng();
-      $(".long").html("Long:" + lng);
-      console.log(lat, lng);
       var marker = new google.maps.Marker({
           map: map,
           position: results[0].geometry.location
@@ -73,61 +73,19 @@ function initMap() {
     }
   });
 
-
-  
+  // creates the map
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 15,
     center: new google.maps.LatLng(41.4995344,-81.6944326),
     mapTypeId: 'roadmap'
   });
-  
-  var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-    var icons = {
-      parking: {
-        icon: iconBase + 'parking_lot_maps.png'
-      },
-      library: {
-        icon: iconBase + 'library_maps.png'
-      },
-      info: {
-        icon: iconBase + 'info-i_maps.png'
-      }
-    };
-  
-  var features = [
-    {
-      // your current location
-      position: new google.maps.LatLng(),
-      type: 'info'
-    }
-  ]
-  
-  features.forEach(function(feature) {
-    var marker = new google.maps.Marker({
-      position: feature.position,
-      icon: icons[feature.type].icon,
-      map: map
-    });
-    console.log(marker);
-    console.log(features.position);
-  });
 }
-
-// function to initialize map based on current location
-// navigator.geolocation.getCurrentPosition(function(position) {
-//  
-//  var location = new google.maps.LatLng(position.coords.latitude,position.coords.longitude)
-//  
-//  map.panTo(location);
-//   
-//});
 
 // update map with all posts from Firebase
 database.ref('Posts').on('child_added', function(snap){
 
 // each child/post in database
 var currentPost = snap.val();
-  console.log(currentPost);
   
 // content for each Info Window
 var contentString = 
@@ -137,13 +95,12 @@ var contentString =
     + currentPost.price +' <strong>Spots Available:</strong> '
     + currentPost.spotsLeft +'</p></div>';
 
-//Add each loaction to the map along with markers
+//Add each location to the map along with markers
 addMarkerToMap(currentPost.location[0],currentPost.location[1],contentString,'parking');
 
 })
 
-
-
+//-------------------------------------------------------------
 // EVENTFUL API CODE
   
 // GET search input from previous page
@@ -163,20 +120,24 @@ $(document).ready(function() {
 });
 
 
-
+// function to get and display Eventful API results
 function displayEvent() {
 
+  // gets location GET variable from url
   if(window.location.search){
     var location = window.location.search.substr(10);
     location = location.replace("+", " ");
   }
   else{
+    // default location set to Cleveland
     location = 'Cleveland'
   }
   
+  // Available additional search criteria
   //var keyword = $("#keyword").val().trim();
   //var event = $("#event").val().trim();
 
+  // Eventful API Search Arguments
   var oArgs = {
 
       app_key: "N78vd3fpJCDPZCB7",
@@ -197,6 +158,7 @@ function displayEvent() {
 
   };
 
+  // Eventful API Call
   EVDB.API.call("/events/search", oArgs, function(oData) {
 
       // Note: this relies on the custom toString() methods below
@@ -209,8 +171,8 @@ function displayEvent() {
           return s;
       }
       var results = oData.events.event;
+      // loop through Eventful API search results
       for (var i = 0; i < results.length; i++) {
-          var eventDiv = $("<div class = 'eventList panel-body'>");
           var lat = results[i].latitude;
           var lng = results[i].longitude;
           var title = results[i].title;
@@ -222,6 +184,7 @@ function displayEvent() {
           var url = results[i].url;
           var description;
           var image;
+          // if no image is returned, use default image
           if (results[i].image !== null) {
               image = results[i].image.medium.url;
           } else {

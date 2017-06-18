@@ -1,3 +1,6 @@
+body{
+	background-color: #D9E3F4;
+}
 .modal-header,
 .modal-footer {
 	border: 0;
@@ -39,29 +42,23 @@
 	color: white;
 	font-size: 20px;
 }
-.price {
+#price {
 	margin-top: none;
 }
 
-.textbox  {
+#textbox  {
 	font-size: 20px;
 	border-radius: 8px;
 	-moz-border-radius: 15px;
 }
-.comments {
+#comments {
 	height: 100px;
 }
 
 #map {
 	width: 100%; 
-	height: 300px;
+	height: 200px;
 }
 .map-container {
-	position: absolute;
-	top:7.9%;
-	right: 7.2%;
-}
-.table-striped {
-	position: absolute;
-	top: 300px;
+	
 }
