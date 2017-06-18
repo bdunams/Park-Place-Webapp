@@ -69,13 +69,24 @@ var userPage = {
     },
   }
 
-//window.onload = function () {
-    
-//    userPage.initMap();
-  $("#post-button").on("click", userPage.postLocation) 
-  $("#modal-button").on("click", userPage.getLocation) 
-
-//};
+window.onload = function () {
+  $("#post-button").on("click", userPage.postLocation); 
+  $("#modal-button").on("click", userPage.getLocation); 
+};
+  
+// user state observer 
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user){
+    // User is signed in.
+    currentUser = user;
+  } 
+  else{
+    // User is signed out.
+    // possible signout actions
+    // empty user information
+    currentUser = {};
+  }
+})
   
   
 // update map with all posts from Firebase
@@ -86,15 +97,16 @@ database.ref('Posts').on('child_added', function(snap){
     console.log(currentPost);
   
   if(currentPost.postedBy === currentUser.uid){
-    // content for each Info Window
-    var contentString = 
-        '<div><h2>Parking Available</h2><p class="lead">'
+    // content for each post
+    var contentString = '<div class="panel panel-default"><div class="panel-body">'
+        +'<div><h2>Post</h2><p class="lead">'
         + currentPost.comment +'</p>'
         + '<p>Posted by '+currentPost.postedBy+' at '+currentPost.timestamp+'</p> <p><strong>Price: </strong>'
         + currentPost.price +' <strong>Spots Available:</strong> '
-        + currentPost.spotsLeft +'</p></div>';
+        + currentPost.spotsLeft +'</p></div>'
+        +'</div></div>';
     
-    $('#userposts').append(contentString);
+    $('#user-posts').append(contentString);
   }
 
   

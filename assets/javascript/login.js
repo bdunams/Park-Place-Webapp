@@ -83,7 +83,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     $('#sign-out').show();
     $('#modalButton').show();
     $('#no-user').text('');
-    $('.display-name').text(', '+displayName);
+    $('#display-name').text(', '+displayName);
+    $('#profile-name').text(displayName+"'s User Page");
     $('#profile-image').attr('src', photoURL);
     $('#display-email').text(email);
   } 
@@ -92,9 +93,10 @@ firebase.auth().onAuthStateChanged(function(user) {
     // possible signout actions
     $('#sign-out').hide();
     $('#sign-in').show();
-    //$('#modalButton').hide();
+    $('#modal-button').hide();
     $('#no-user').text('User must be signed in to view posts');
     $('.display-name').empty();
+    $('#profile-name').empty();
     $('#profile-image').attr('src', '');
     $('#display-email').text('');
   }
