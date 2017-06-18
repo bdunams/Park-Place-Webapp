@@ -84,7 +84,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     $('#no-user').text('');
     $('.display-name').text(', '+displayName);
     $('#profile-name').text(displayName+"'s User Page");
-    $('#profile-img').attr('src', photoURL);
+    $('#profile-img').attr('src', photoURL).css('width','250px');
     $('#display-email').text(email);
     $('#previous-posts-title').text('Previous Posts')
   } 
@@ -100,6 +100,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     $('#profile-name').empty();
     $('#profile-img').attr('src', '');
     $('#display-email').text('');
-    $('#previous-posts-title').text('')
+    $('#previous-posts-title').text('');
+    $('#user-posts').empty();
   }
 })

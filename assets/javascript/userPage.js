@@ -92,8 +92,8 @@ database.ref('Posts').on('child_added', function(snap){
       // content for each post
       var contentString = '<div class="panel panel-default"><div class="panel-body">'
           +'<div><h2>Post</h2><p class="lead">'
-          + currentPost.comment +'</p><p>'
-          + currentPost.price +'<strong>Price:</strong><strong>Spots Available:</strong> '
+          + currentPost.comment +'</p><p><strong>Price: '
+          + currentPost.price +'  </strong><strong>Spots Available:</strong> '
           + currentPost.spotsLeft +'</p></div>'
           + '<p>Posted by '+currentPost.postedBy+' at '+ currentPost.timestamp +
           '</p></div></div>';
