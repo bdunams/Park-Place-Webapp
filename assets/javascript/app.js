@@ -73,7 +73,7 @@ function initMap() {
     }
   });
 
-  // creates the map
+  // creates the map with default location Downtown Cleveland
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 15,
     center: new google.maps.LatLng(41.4995344,-81.6944326),
